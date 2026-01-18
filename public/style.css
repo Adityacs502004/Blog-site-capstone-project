@@ -1,0 +1,249 @@
+/* create new blog page */
+.page{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100%;
+}
+
+.blog{
+    margin-top: 6vh;
+    width: 60vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    background-color: beige;
+    border-radius: 12px;
+}
+
+.blog_content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.title{
+    width: 40vw;
+    height: 6vh;
+    margin-top: 6vh;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+
+
+.title_input_box{
+    width: 30vw;
+    flex: 1;
+}
+
+.title_input_box:not(:placeholder-shown){
+    font-size: 3.2rem;
+    font-weight: 800;
+}
+.titlebox{
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: 100%;
+    border: 2px solid orange;
+}
+
+
+.title_input{
+    display: flex;
+    align-items: center;
+    height: 6.2vh;
+    
+}
+
+.title_input > input{
+    height: 100%;
+    border: none;
+    border-left: 2px solid orange;
+    border-bottom: 2px solid orange;
+}
+
+
+
+.story{
+    min-width: 80%;
+    min-height: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.story > textarea{
+    width: 100%;
+    max-height: 250px;
+    flex: 1;
+    border-left: 2px solid orange;
+    border-bottom: 2px solid orange;
+}
+
+
+@media (max-width : 992px){
+    .title{
+        height: 170px;
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+    }
+    .title_input{
+        height: 70px;
+    }
+    .titlebox{
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: 50px;
+    border: 2px solid orange;
+}
+}
+
+
+/* Homepage */
+
+
+.main_page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    gap: 8vh;
+}
+
+
+.a_post{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(160, 150, 137);
+    border-radius: 12px;
+    width: 60vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.a_title{
+    
+    width: 100%;
+    height: 50%;
+    padding: 8px 8px 8px 8px;
+    
+}
+
+.a_title > h1{
+    font-size: 3.5vw;
+    display: flex;
+}
+
+.a_story{
+    padding: 8px 8px 8px 8px;
+}
+
+.a_story > p {
+    font-size: 1.2vw;
+}
+
+@media (max-width : 992px){
+    .a_post{
+        
+        width: 70vw;
+        height: 50vh;
+    }
+    .a_title > h1{
+    font-size: 7.5vw;
+    }
+
+    .a_story > p {
+    font-size: 4.2vw;
+    }
+
+}
+
+
+
+/* Single blog (blog.ejs) */
+
+.the_blog{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_title{
+    display: flex;
+    justify-content: center;
+}
+.main_title > h1{
+    font-size: 6vh;
+} 
+
+
+.blog_structure{
+    display: flex;
+    padding: 8px 8px 8px 8px;
+    border-radius: 12px;
+    flex-direction: column;
+    background-color: rgb(146, 175, 177);
+    width: 70vw;
+    height: 80vh;
+}
+
+.blog_del_edit{
+    display: flex;
+    gap: 2vw;
+    justify-content: flex-end;
+}
+
+
+/* delete alert */
+
+.alert_body{
+    z-index: 5;
+    position: fixed;
+    top: 38vh;
+    left: 42.5vw;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.showalert{
+    background-color: rgb(127, 172, 172);
+    padding: 4px 4px 4px 4px;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    border-radius: 6px;
+}
+.showalert > h4{
+    font-size: larger;
+    font-weight: bolder;
+}
+
+
+.yes_no_btn{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.yes_no_btn > button{
+    width: fit-content;
+    height: fit-content;
+    font-size: larger;
+    font-weight: bolder;
+    background-color: orange;
+    border-radius: 4px;
+}

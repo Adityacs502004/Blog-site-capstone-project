@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>HomePage</title>
+</head>
+<body>
+    <%- include("navbar.ejs") %>
+    <div class="main_page">
+        <% for (let i = 0 ; i < blog_title.length ; i++){ %>        
+        <div class="a_post">
+            <div class="a_title">
+                <h1> <%= blog_title[i] %> </h1>
+            </div>
+            <div class="a_story">
+                <p> <%= truncated_body[i] %></p>
+                <p><a href="/blog/<%= i %>" class="link-underline-primary">Read more</a></p>
+                
+            </div>
+        </div>
+        <% } %>
+    </div>
+    
+    
+</body>
+</html>
+
+
+

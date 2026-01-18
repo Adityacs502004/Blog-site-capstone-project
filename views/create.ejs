@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog_post</title>
+</head>
+<body>
+    <%- include("navbar.ejs") %>
+    <div class="page">
+        <div class="blog">
+            <form action="<%= action %>" method="post" class="blog_content action_method">
+                <div class="title">
+                <div class="titlebox">
+                    <h1>Title</h1>
+                </div>
+                <div class="title_input">
+                    <!-- <form action="/" method="post"> -->
+                        <input type="text" class="new_title text_input title_input_box"
+                         placeholder="Enter Blog title" name="post_title" value="<%= title %>" required>
+                    <!-- </form> -->
+                    
+                </div>
+            </div>
+            <br><br>
+            <div class="mb-3 story">
+                <label for="exampleFormControlTextarea1" class="form-label">Type your post here</label>
+                <!-- <form action="/" method="post"> -->
+                    <textarea class="form-control new_body text_input" id="exampleFormControlTextarea1" rows="3" name="post_story" required><%= post_body %></textarea>
+                <!-- </form> -->
+                
+            </div>
+            <br><br>
+            <div class="post">         
+                    <button type="submit" class="btn btn-outline-success update_post" disabled><%= button %></button>
+            </div>
+
+            <div class="alert_body">
+                    <div class="showalert">
+                        <h4>Are you sure want to delete ?</h4>
+                        <div class="yes_no_btn">
+                            <button type="button" id="Yes">Yes</button>
+                            <button type="button" id="No">No</button>
+                        </div>
+                    
+                </div>
+                </div>
+
+            </form>
+            
+        </div>
+    </div>
+
+
+    <script>
+
+        var url_action = document.querySelector(".action_method");
+        var url = url_action.getAttribute("action");
+        var alert_box = document.querySelector(".alert_body");
+
+        alert_box.style.display = 'none';
+
+        var btn = document.querySelector(".update_post");
+        var original_title = "<%= title %>";
+        var original_body = "<%= post_body %>"
+
+        var text_area = document.querySelectorAll(".text_input");
+
+        if (url.startsWith("/delete")){
+            
+            var blog_id = url.split("/").pop();
+
+            btn.setAttribute("type", "button");
+            var yes = document.querySelector("#Yes");
+            var no = document.querySelector("#No");
+            btn.removeAttribute("disabled");
+            btn.addEventListener("click" , ()=>{
+                alert_box.style.display = 'block';
+                yes.addEventListener("click" , ()=>{
+                    window.location.href = `/confm_delete/${blog_id}`
+                })
+                no.addEventListener("click" , ()=>{
+                    alert_box.style.display = 'none';
+                })
+            })
+
+        }
+        else{
+            function check(){
+                var edited_title = document.querySelector(".new_title").value;
+                var edited_body = document.querySelector(".new_body").value;
+
+                if ((original_title == edited_title && original_body == edited_body)){
+                    btn.setAttribute("disabled", "true");
+                }
+                else{
+                    btn.removeAttribute("disabled");
+                }
+                
+            }
+
+            text_area[0].addEventListener("input" , check);
+            text_area[1].addEventListener("input" , check);
+        }
+
+        
+
+        
+
+
+    </script>
+</body>
+</html>
+
+
